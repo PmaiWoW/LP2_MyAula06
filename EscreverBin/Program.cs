@@ -26,17 +26,18 @@ namespace EscreverBin
             int i = 10;
             float x = 4.69f;
 
-            FileStream fs = new FileStream(ficheiro, FileMode.Create,
-                FileAccess.Write);
-            BinaryWriter bw = new BinaryWriter(fs);
+            using (FileStream fs = new FileStream(ficheiro, FileMode.Create,
+                FileAccess.Write))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    bw.Write(s);
+                    bw.Write(i);
+                    bw.Write(x);
 
-            bw.Write(s);
-            bw.Write(i);
-            bw.Write(x);
-
-            Console.WriteLine($"{s}\n{i}\n{x}");
-
-            bw.Close();
+                    Console.WriteLine($"{s}\n{i}\n{x}");
+                }
+            }
         }
     }
 }

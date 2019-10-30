@@ -26,15 +26,14 @@ namespace LerTexto
             int i;
             float x;
 
-            StreamReader sr = new StreamReader(ficheiro);
+            using (StreamReader sr = new StreamReader(ficheiro))
+            {
+                s = sr.ReadLine();
+                i = int.Parse(sr.ReadLine());
+                float.TryParse(sr.ReadLine(), out x);
 
-            s = sr.ReadLine();
-            i = int.Parse(sr.ReadLine());
-            float.TryParse(sr.ReadLine(), out x);
-
-            Console.WriteLine($"{s}\n{i}\n{x}");
-
-            sr.Close();
+                Console.WriteLine($"{s}\n{i}\n{x}");
+            }
         }
     }
 }

@@ -26,17 +26,18 @@ namespace LerBin
             int i;
             float x;
 
-            FileStream fs = new FileStream(ficheiro, FileMode.Open, 
-                FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
+            using (FileStream fs = new FileStream(ficheiro, FileMode.Open,
+                FileAccess.Read))
+            {
+                using (BinaryReader br = new BinaryReader(fs))
+                {
+                    s = br.ReadString();
+                    i = br.ReadInt32();
+                    x = br.ReadSingle();
 
-            s = br.ReadString();
-            i = br.ReadInt32();
-            x = br.ReadSingle();
-
-            Console.WriteLine($"{s}\n{i}\n{x}");
-
-            br.Close();
+                    Console.WriteLine($"{s}\n{i}\n{x}");
+                }
+            }
         }
     }
 }

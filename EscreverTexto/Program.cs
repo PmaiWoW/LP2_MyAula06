@@ -28,13 +28,12 @@ namespace EscreverTexto
             int i = 10;
             float x = 4.69f;
 
-            StreamWriter sw = new StreamWriter(ficheiro);
-
-            sw.WriteLine(s);
-            sw.WriteLine(i);
-            sw.WriteLine(x);
-
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(ficheiro))
+            {
+                sw.WriteLine(s);
+                sw.WriteLine(i);
+                sw.WriteLine(x);
+            }
         }
     }
 }
