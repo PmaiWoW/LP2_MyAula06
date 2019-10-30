@@ -34,10 +34,10 @@ namespace LerBin
                     s = br.ReadString();
                     i = br.ReadInt32();
                     x = br.ReadSingle();
-
-                    Console.WriteLine($"{s}\n{i}\n{x}");
                 }
             }
+
+            Console.WriteLine($"{s}\n{i}\n{x}");
         }
     }
 }

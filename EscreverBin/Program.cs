@@ -34,10 +34,10 @@ namespace EscreverBin
                     bw.Write(s);
                     bw.Write(i);
                     bw.Write(x);
-
-                    Console.WriteLine($"{s}\n{i}\n{x}");
                 }
             }
+
+            Console.WriteLine($"{s}\n{i}\n{x}");
         }
     }
 }
